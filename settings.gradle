@@ -1,0 +1,3 @@
+include ':AdMediator'
+include ':app'
+rootProject.name = "TapsellTaskWithKotlin"

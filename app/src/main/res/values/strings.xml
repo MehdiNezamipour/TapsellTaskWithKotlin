@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TapsellTaskWithKotlin</string>
+    <string name="interstitial_banner">Interstitial Banner</string>
+    <string name="interstitial_video">Interstitial Video</string>
+    <string name="rewarded_video">Rewarded Video</string>
+    <string name="request">request</string>
+    <string name="show">Show</string>
+</resources>
