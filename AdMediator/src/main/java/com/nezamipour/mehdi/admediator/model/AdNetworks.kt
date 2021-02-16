@@ -9,13 +9,13 @@ import kotlinx.parcelize.Parcelize
 class AdNetworks(
     @SerializedName("Tapsell")
     @Expose
-    var tapsell: String,
+    var tapsell: String?,
 
     @SerializedName("UnityAds")
     @Expose
-    var unityAds: String,
+    var unityAds: String?,
 
     @SerializedName("Chartboost")
     @Expose
-    var chartboost: String
+    var chartboost: String?
 ): Parcelable

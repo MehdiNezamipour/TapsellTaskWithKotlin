@@ -32,43 +32,53 @@ class InterstitialBannerActivity : AppCompatActivity() {
 
         binding.buttonRequestAd.setOnClickListener {
             CoroutineScope(IO).launch {
-                AdMediator.requestAd(context = this@InterstitialBannerActivity, Constants.AD_MEDIATOR_INTERSTITIAL_BANNER, object : AdRequestCallback {
-                    override fun onSuccess(adId: String?) {
-                        binding.buttonShowAd.isEnabled = true
-                        if (adId != null) {
-                            this@InterstitialBannerActivity.adId = adId
+                AdMediator.requestAd(
+                    context = this@InterstitialBannerActivity,
+                    Constants.AD_MEDIATOR_INTERSTITIAL_BANNER,
+                    object : AdRequestCallback {
+                        override fun onSuccess(adId: String?) {
+                            binding.buttonShowAd.isEnabled = true
+                            if (adId != null) {
+                                this@InterstitialBannerActivity.adId = adId
+                            }
                         }
-                    }
 
-                    override fun error(message: String?) {
-                        Toast.makeText(this@InterstitialBannerActivity, message, Toast.LENGTH_SHORT)
-                            .show()
-                    }
+                        override fun error(message: String?) {
+                            Toast.makeText(
+                                this@InterstitialBannerActivity,
+                                message,
+                                Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        }
 
-                })
+                    })
             }
         }
 
         binding.buttonShowAd.setOnClickListener {
-            AdMediator.showAd(this, this, adId, object : AdShowCallback {
-                override fun onOpened() {
-                    Toast.makeText(this@InterstitialBannerActivity, "Ad Showed", Toast.LENGTH_SHORT)
-                        .show()
-                }
+            AdMediator.showAd(
+                this,
+                Constants.AD_MEDIATOR_INTERSTITIAL_BANNER,
+                adId,
+                object : AdShowCallback {
+                    override fun onOpened() {
+                        TODO("Not yet implemented")
+                    }
 
-                override fun onClosed() {
-                    TODO("Not yet implemented")
-                }
+                    override fun onClosed() {
+                        TODO("Not yet implemented")
+                    }
 
-                override fun onRewarded() {
-                    TODO("Not yet implemented")
-                }
+                    override fun onRewarded() {
+                        TODO("Not yet implemented")
+                    }
 
-                override fun onError(message: String?) {
-                    TODO("Not yet implemented")
-                }
+                    override fun onError(message: String?) {
+                        TODO("Not yet implemented")
+                    }
 
-            })
+                })
         }
 
     }
